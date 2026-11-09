@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
     refresh();
 
     attrset(COLOR_PAIR(1));
-    printw("File: %s, len: %d", argv[1], sb.st_size);
+    printw("File: %s, len: %ld", argv[1], sb.st_size);
 
     int startx  = 4, starty  = 3,
         scrollx = 0, scrolly = 0;
@@ -71,7 +71,8 @@ int main(int argc, char *argv[])
     char *mask = strdup(buf);
 
     int l, ch;
-    char *str, *key="";
+    char *str;
+    const char *key = "";
     while (ch != KEY_ESC)
     {
         wclear(box_win);
